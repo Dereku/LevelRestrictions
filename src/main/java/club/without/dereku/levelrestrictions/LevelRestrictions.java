@@ -20,6 +20,9 @@ public final class LevelRestrictions extends JavaPlugin implements Listener {
 
     private static final String PREFIX = ChatColor.LIGHT_PURPLE.toString() + ChatColor.RED.toString();
     private static final String LEVEL_LINE = ChatColor.GOLD.toString() + "Level required: ";
+    private static final List<InventoryType.SlotType> SLOT_TYPES = Arrays.asList(
+         InventoryType.SlotType.ARMOR, InventoryType.SlotType.QUICKBAR
+    );
     private static final List<InventoryAction> ITEM_MOVE_ACTIONS = Arrays.asList(
             InventoryAction.PLACE_ALL, InventoryAction.PLACE_ONE, InventoryAction.PLACE_SOME,
             InventoryAction.SWAP_WITH_CURSOR, InventoryAction.HOTBAR_SWAP
@@ -91,7 +94,12 @@ public final class LevelRestrictions extends JavaPlugin implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onInventoryClick(InventoryClickEvent event) {
         //Now lets make it compatible with all plugins that changes player's inventory
-        if (event.getSlotType() != InventoryType.SlotType.ARMOR) {
+        if (LevelRestrictions.SLOT_TYPES.contains(event.getSlotType())) {
+            return;
+        }
+
+        //45 - shield slot
+        if (event.getSlotType() == InventoryType.SlotType.QUICKBAR && event.getRawSlot() != 45) {
             return;
         }
 
