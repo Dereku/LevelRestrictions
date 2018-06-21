@@ -3,3 +3,10 @@ version: ${project.version}
 main: club.without.dereku.levelrestrictions.LevelRestrictions
 authors: [Dereku]
 description: limiting the level of wearing an item
+commands:
+  levelrestriction:
+    aliases: [lr]
+    usage: /<command> [level]
+    description: Enabling level restriction for current item in hand or disabling it, if item already have level restriction.
+    permission: levelrestrictions.command.levelrestriction
+    default: op
