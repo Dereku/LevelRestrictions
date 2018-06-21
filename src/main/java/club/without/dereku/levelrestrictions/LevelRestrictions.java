@@ -94,7 +94,7 @@ public final class LevelRestrictions extends JavaPlugin implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onInventoryClick(InventoryClickEvent event) {
         //Now lets make it compatible with all plugins that changes player's inventory
-        if (LevelRestrictions.SLOT_TYPES.contains(event.getSlotType())) {
+        if (!LevelRestrictions.SLOT_TYPES.contains(event.getSlotType())) {
             return;
         }
 
@@ -141,7 +141,7 @@ public final class LevelRestrictions extends JavaPlugin implements Listener {
         }
 
         event.setCancelled(true);
-        player.sendMessage("You can't wear that item, required level: " + levelRestriction);
+        player.sendMessage("You can't equip that item, required level: " + levelRestriction);
     }
 
     enum ItemType {
