@@ -125,7 +125,7 @@ public final class LevelRestrictions extends JavaPlugin implements Listener {
             return;
         }
 
-        if (levelRestriction < player.getLevel()) {
+        if (levelRestriction <= player.getLevel()) {
             return;
         }
 
