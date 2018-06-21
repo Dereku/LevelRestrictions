@@ -90,8 +90,8 @@ public final class LevelRestrictions extends JavaPlugin implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onInventoryClick(InventoryClickEvent event) {
-        //We want to listen only player's inventory clicks
-        if (event.getInventory().getType() != InventoryType.CRAFTING) {
+        //Now lets make it compatible with all plugins that changes player's inventory
+        if (event.getSlotType() != InventoryType.SlotType.ARMOR) {
             return;
         }
 
