@@ -1,0 +1,5 @@
+name: LevelRestrictions
+version: ${project.version}
+main: club.without.dereku.levelrestrictions.LevelRestrictions
+authors: [Dereku]
+description: limiting the level of wearing an item
