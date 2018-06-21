@@ -66,6 +66,7 @@ public final class LevelRestrictions extends JavaPlugin implements Listener {
         return true;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getLevelRestriction(ItemStack item) {
         if (!item.hasItemMeta()) {
             return -1;
@@ -93,8 +94,6 @@ public final class LevelRestrictions extends JavaPlugin implements Listener {
         if (event.getInventory().getType() != InventoryType.CRAFTING) {
             return;
         }
-
-        System.out.println("Action: " + event.getAction() + ", rawSlot: " + event.getRawSlot() + ", cursor: " + event.getCursor());
 
         if (!LevelRestrictions.ITEM_MOVE_ACTIONS.contains(event.getAction())) {
             return;
